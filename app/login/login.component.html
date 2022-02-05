@@ -1,0 +1,50 @@
+<div class="row custom-row mt-5">
+    <div class="container-fluid text-center">
+        <h2 class="text-primary text-uppercase font-weight-bold mb-5">Welcome to Quiz Application </h2>
+        <!-- <hr class="mb-5"> -->
+      </div>
+  <div class="col-sm-5 container jumbotron">
+    <form #frm="ngForm" (ngSubmit)="login(frm.value)" autocomplete="off">
+      <fieldset>
+        <legend class="text-center font-weight-bold">Login</legend>
+        <br>
+        <!-- <div class="form-group text-center">
+            <label class="col-form-label font-weight-bold">Select your role:</label>
+        </div> -->
+        <div class="row form-group text-center">
+          <!-- <div class="row mx-auto"> -->                            
+            <div class="form-check col-sm-6">
+                <label class="form-check-label font-weight-bold">
+                    <input type="radio" value="student" name="user" ngModel> Student
+                  </label>
+            </div>
+            <div class="form-check col-sm-6">
+                <label class="form-check-label font-weight-bold">
+                    <input type="radio" value="admin" name="user" ngModel> Admin
+                  </label>
+            </div>
+          <!-- </div> -->
+        </div>
+        <br>
+        
+        <div class="form-group">
+          <input type="text" class="form-control" name="uname" ngModel placeholder="Enter Username (Email id)" required />
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" name="upass" ngModel placeholder="Enter Password" required />
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-primary" [disabled]="frm.invalid">Submit</button>&nbsp;
+          <button type="reset" class="btn btn-primary" >Reset</button>
+        </div>
+      </fieldset>
+    </form>
+    <!-- <p>{{ frm.value | json }}</p> -->
+    <h6 *ngIf="!exist" class="text-danger text-center">{{ errorMsg }}</h6>
+
+    <div class="text-center">
+      <!-- <p class="text-primary">Forget Password?</p> -->
+      <p class="text-primary" style="cursor: pointer;" [routerLink]="['/register', 'login']">New User? Click here to register.</p>
+    </div>
+  </div>
+</div>
